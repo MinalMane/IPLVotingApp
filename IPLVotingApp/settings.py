@@ -123,7 +123,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+# django-heroku settings
+import django_heroku
+django_heroku.settings(locals())
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.9/howto/static-files/
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+# static files settings
+STATIC_URL = '/static/'
+
+# location where you will store your static files
+STATICFILES_DIR = [
+    os.path.join(BASE_DIR, "static"),
+]
+
+# location where django collect all static files
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
